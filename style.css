@@ -1,0 +1,347 @@
+/* =========================
+   Theme + Reset
+   ========================= */
+
+:root{
+  --bg1: #0b1220;
+  --bg2: #0f1a2b;
+
+  --card: rgba(255,255,255,0.08);
+  --card-strong: rgba(255,255,255,0.12);
+  --border: rgba(255,255,255,0.14);
+
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+
+  --accent: #61d6ff;
+  --accent2: #87f7c0;
+
+  --danger: #ff5aa5;
+  --shadow: 0 14px 40px rgba(0,0,0,0.35);
+  --shadow-soft: 0 10px 25px rgba(0,0,0,0.22);
+
+  --radius: 18px;
+  --radius-sm: 14px;
+
+  --container: 980px;
+}
+
+/* خط عربي جميل (بدون لمس HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Tajawal", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  direction: rtl;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 20% 0%, rgba(97,214,255,0.18), transparent 60%),
+    radial-gradient(1000px 600px at 90% 10%, rgba(135,247,192,0.14), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+/* =========================
+   Layout
+   ========================= */
+
+section{
+  padding: 18px 14px 34px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* =========================
+   Sticky Navigation
+   ========================= */
+
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px 10px;
+  margin: 0;
+
+  background: rgba(10, 16, 28, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+button{
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(135deg, rgba(97,214,255,0.25), rgba(135,247,192,0.18));
+  color: var(--text);
+  font-family: inherit;
+
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 700;
+
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
+}
+
+button:hover{
+  transform: translateY(-1px);
+  border-color: rgba(97,214,255,0.35);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.32);
+}
+
+button:active{
+  transform: translateY(0px) scale(0.99);
+}
+
+button:focus-visible{
+  outline: 3px solid rgba(97,214,255,0.35);
+  outline-offset: 3px;
+}
+
+/* موبايل: خلي الأزرار مرتبة ومتساوية */
+@media (max-width: 600px){
+  nav{
+    justify-content: stretch;
+    gap: 8px;
+    padding: 10px 10px;
+  }
+  button{
+    flex: 1;
+    width: 100%;
+    font-size: 15px;
+    padding: 12px 10px;
+  }
+}
+
+/* =========================
+   Titles
+   ========================= */
+
+/* دعم كلا الاسمين: sabahtitle / masatitle و صباح-title / مساء-title */
+#sabahtitle, #masatitle,
+#صباح-title, #مساء-title{
+  text-align: center;
+  margin: 18px auto 14px;
+  padding: 14px 14px 10px;
+  max-width: 720px;
+
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: clamp(26px, 5vw, 44px);
+
+  background: linear-gradient(135deg, rgba(97,214,255,0.14), rgba(135,247,192,0.10));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+/* لو عندك section h2 بمكان ثاني */
+section h2{
+  margin: 16px auto 12px;
+  padding: 12px 12px;
+  max-width: 720px;
+
+  color: var(--text);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+
+  font-size: clamp(18px, 3.8vw, 26px);
+  font-weight: 800;
+}
+
+/* =========================
+   Description / Explanation
+   ========================= */
+
+.t3ref{
+  max-width: 760px;
+  margin: 10px auto 14px;
+  padding: 12px 14px;
+
+  text-align: center;
+  font-size: clamp(15px, 3.6vw, 19px);
+  font-weight: 700;
+
+  color: var(--muted);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-sm);
+}
+
+/* =========================
+   Dhikr Card
+   ========================= */
+
+.shr7{
+  max-width: 820px;
+  margin: 12px auto;
+  padding: 16px 16px;
+
+  text-align: center;
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 600;
+  line-height: 1.9;
+
+  color: var(--text);
+
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* لمعة خفيفة تعطي فخامة بدون ما تزعج */
+.shr7::before{
+  content: "";
+  position: absolute;
+  inset: -60px -40px auto auto;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 30% 30%, rgba(97,214,255,0.22), transparent 60%);
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+/* تحسين القراءة للموبايل */
+@media (max-width: 420px){
+  .shr7{
+    padding: 14px 12px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================
+   Times badge
+   ========================= */
+
+.times{
+  display: inline-block;
+  margin-inline-start: 6px;
+  padding: 4px 10px;
+
+  font-size: 0.95em;
+  font-weight: 800;
+
+  color: #1b0d15;
+  background: linear-gradient(135deg, rgba(255,90,165,0.95), rgba(255,216,235,0.9));
+  border-radius: 999px;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.28);
+}
+
+/* =========================
+   Optional: nicer text selection
+   ========================= */
+
+::selection{
+  background: rgba(97,214,255,0.35);
+}
+
+/* =========================
+   Visual separation between Morning & Evening
+   ========================= */
+
+/* مسافة أكبر قبل المساء */
+#masatitle,
+#مساء-title{
+  margin-top: 90px;
+  position: relative;
+}
+
+/* خط زخرفي فخم فوق المساء */
+#masatitle::before,
+#مساء-title::before{
+  content: "";
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, 85vw);
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, transparent, rgba(97,214,255,0.8), transparent);
+}
+
+/* نقطة مضيئة بالنص */
+#masatitle::after,
+#مساء-title::after{
+  content: "✦";
+  position: absolute;
+  top: -58px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  color: rgba(135,247,192,0.9);
+  text-shadow: 0 0 12px rgba(135,247,192,0.6);
+}
+
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 10px;
+  background: rgba(10,16,28,0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+/* نفس زرار التصميم */
+.navbtn{
+  text-decoration: none;
+  color: rgba(255,255,255,0.92);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(135deg, rgba(97,214,255,0.22), rgba(135,247,192,0.16));
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbtn:hover{
+  transform: translateY(-1px);
+  border-color: rgba(97,214,255,0.35);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.32);
+}
+
+.navbtn:active{
+  transform: translateY(0) scale(0.99);
+}
+
+/* موبايل */
+@media (max-width: 600px){
+  .topbar{ justify-content: stretch; }
+  .navbtn{ flex: 1; justify-content: center; }
+}
